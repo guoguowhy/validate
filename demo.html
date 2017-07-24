@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			font-family: "微软雅黑";
+		}
+
+		.box {
+			width: 800px;
+			padding: 30px;
+			margin: 50px auto 0;
+			border: 1px solid #ddd;
+		}
+
+		.color {
+			color: #f00;
+		}
+	</style>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+	<div class="box">
+		<form class="data">
+			<div class="form-group">
+				<label for="username">用户名</label>
+				<input type="text" class="form-control" id="username" name="username" data-bv-required="true" data-bv-required-message="用户名不能为空"
+				 data-bv-regex="^[_0-9a-z]{6,16}$" data-bv-regex-message="用户名格式不合法(由6-16位的字母数字下划线组成)" placeholder="请输入您的用户名">
+			</div>
+			<div class="form-group">
+				<label for="email">验证邮箱</label>
+				<input type="text" class="form-control" id="email" name="email" data-bv-required="true" data-bv-required-message="邮箱不能为空"
+				 data-bv-email="^\w+@\w+\.\w+$" data-bv-email-message=" 邮箱输入不合法" placeholder="请输入合法邮箱">
+			</div>
+			<div class="form-group">
+				<label for="password">输入密码</label>
+				<input type="password" class="form-control" id="password" name="password" data-bv-require="true" data-bv-require-message="密码必须填写" data-bv-regex="^[0-9a-zA-Z]+$"
+				 data-bv-regex-message="密码格式不合法(由字母数字组成)" data-bv-match="#confirmPassword" data-bv-match-message="密码和确认密码不一致" data-bv-maxlength="16"
+				 data-bv-maxlength-message="密码不能超过16位" data-bv-minlength="6" data-bv-minlength-message="密码不能小于6位" id="password" placeholder="请输入数组字母下划线">
+			</div>
+			<div class="form-group">
+				<label for="confirmPassword">确认密码</label>
+				<input type="password" class="form-control" name="confirmPassword" data-bv-require="true" data-bv-require-message="确认密码必须填写"
+				 data-bv-regex="^[0-9a-zA-Z]+$" data-bv-regex-message="确认密码格式不合法(由字母数字组成)" data-bv-match="#password" data-bv-match-message="确认密码和密码不一致"
+				 id="confirmPassword" placeholder="请输入数组字母下划线">
+			</div>
+			<div class="form-group">
+				<label for="phone">手机号码</label>
+				<input type="text" class="form-control" id="phone" name="phone" data-bv-required=true data-bv-required-message="手机号码不能为空"
+				 data-bv-phone="^1\d{10}$" data-bv-phone-message=" 手机号码输入不合法" placeholder="请输入合法的电话号码">
+			</div>
+			<input type="button" class="btn btn-default" data-bv-submit="true" value="注册">
+		</form>
+	</div>
+
+
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/validate.js"></script>
+	<script>
+		$(".data").validate({
+			trigger: "keyup",
+			// submitType:"ajax"
+		});
+	</script>
+</body>
+
+</html>
